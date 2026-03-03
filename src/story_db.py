@@ -3,9 +3,9 @@
 
 import sqlite3
 from pathlib import Path
+from typing import List, Dict, Optional
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional, List, Dict
 
 DB_PATH = Path(__file__).parent.parent / "data" / "dao_digest.db"
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
@@ -24,6 +24,14 @@ class Story:
     relevance_score: float = 0.0
     coverage_status: str = "discovered"
     edition_date: Optional[str] = None
+    id: Optional[int] = None
+
+
+@dataclass
+class Topic:
+    name: str
+    category: str
+    description: Optional[str] = None
     id: Optional[int] = None
 
 
@@ -67,6 +75,58 @@ class StoryDB:
             )
             cursor.execute("SELECT id FROM stories WHERE url = ?", (story.url,))
             return cursor.fetchone()[0]
+
+    def add_topic(self, topic: Topic) -> int:
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                """
+                INSERT INTO topics (name, category, description)
+                VALUES (?, ?, ?)
+                ON CONFLICT(name) DO UPDATE SET
+                    category=excluded.category,
+                    description=excluded.description
+                """,
+                (topic.name, topic.category, topic.description)
+            )
+            cursor.execute("SELECT id FROM topics WHERE name = ?", (topic.name,))
+            return cursor.fetchone()[0]
+
+    def link_story_topic(self, story_id: int, topic_id: int, relevance: float = 1.0):
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO story_topics (story_id, topic_id, relevance)
+                VALUES (?, ?, ?)
+                """,
+                (story_id, topic_id, relevance)
+            )
+
+    def add_keyword(self, keyword: str) -> int:
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                """
+                INSERT INTO keywords (keyword, frequency)
+                VALUES (?, 1)
+                ON CONFLICT(keyword) DO UPDATE SET
+                    frequency = frequency + 1,
+                    last_seen = CURRENT_TIMESTAMP
+                """,
+                (keyword,)
+            )
+            cursor.execute("SELECT id FROM keywords WHERE keyword = ?", (keyword,))
+            return cursor.fetchone()[0]
+
+    def link_story_keyword(self, story_id: int, keyword_id: int):
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO story_keywords (story_id, keyword_id)
+                VALUES (?, ?)
+                """,
+                (story_id, keyword_id)
+            )
 
     def add_edition(self, edition_date: str, title: Optional[str] = None) -> int:
         with sqlite3.connect(self.db_path) as conn:

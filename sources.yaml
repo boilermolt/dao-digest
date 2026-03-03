@@ -1,0 +1,81 @@
+# DAO Digest Sources
+# Category choices: governance, tooling, funding, regulation, ecosystem, security
+
+sources:
+  - name: Aave Governance
+    type: rss
+    url: https://governance.aave.com/latest.rss
+    category: governance
+
+  - name: Uniswap Governance
+    type: rss
+    url: https://gov.uniswap.org/latest.rss
+    category: governance
+
+  - name: Maker Governance
+    type: rss
+    url: https://forum.makerdao.com/latest.rss
+    category: governance
+
+  - name: Arbitrum Governance
+    type: rss
+    url: https://forum.arbitrum.foundation/latest.rss
+    category: governance
+
+  - name: Optimism Governance
+    type: rss
+    url: https://gov.optimism.io/latest.rss
+    category: governance
+
+  - name: Lido Governance
+    type: rss
+    url: https://research.lido.fi/latest.rss
+    category: governance
+
+  - name: Snapshot
+    type: rss
+    url: https://snapshot.org/#/feed.rss
+    category: governance
+
+  - name: Tally Blog
+    type: rss
+    url: https://blog.tally.xyz/rss/
+    category: tooling
+
+  - name: Tally Substack
+    type: rss
+    url: https://tallyho.substack.com/feed
+    category: tooling
+
+  - name: DAO tooling (Mirror)
+    type: rss
+    url: https://mirror.xyz/feed
+    category: tooling
+
+  - name: The Block - Governance
+    type: rss
+    url: https://www.theblock.co/rss?category=governance
+    category: ecosystem
+
+  - name: CoinDesk - Policy & Regulation
+    type: rss
+    url: https://www.coindesk.com/arc/outboundfeeds/rss/?outputType=xml&section=policy
+    category: regulation
+
+  - name: CoinDesk - Web3
+    type: rss
+    url: https://www.coindesk.com/arc/outboundfeeds/rss/?outputType=xml&section=web3
+    category: ecosystem
+
+  - name: Bankless
+    type: rss
+    url: https://www.bankless.com/feed
+    category: ecosystem
+
+keywords:
+  governance: [proposal, vote, snapshot, forum, arfc, aip, temp check, quorum]
+  funding: [grant, treasury, budget, funding, allocation, incentives]
+  tooling: [dashboard, tooling, interface, protocol, integration, infra]
+  regulation: [sec, cftc, policy, regulation, compliance]
+  security: [exploit, hack, bug bounty, vulnerability]
+  ecosystem: [launch, partnership, roadmap, upgrade]
