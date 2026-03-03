@@ -2,6 +2,7 @@
 # Category choices: governance, tooling, funding, regulation, ecosystem, security
 
 sources:
+  # Governance forums (Discourse RSS)
   - name: Aave Governance
     type: rss
     url: https://governance.aave.com/latest.rss
@@ -32,11 +33,27 @@ sources:
     url: https://research.lido.fi/latest.rss
     category: governance
 
-  - name: Snapshot
+  - name: ENS Governance
     type: rss
-    url: https://snapshot.org/#/feed.rss
+    url: https://discuss.ens.domains/latest.rss
     category: governance
 
+  - name: Compound Governance
+    type: rss
+    url: https://www.comp.xyz/latest.rss
+    category: governance
+
+  - name: Gitcoin Governance
+    type: rss
+    url: https://gov.gitcoin.co/latest.rss
+    category: governance
+
+  - name: Aavechan (Aave News)
+    type: rss
+    url: https://aavechan.com/feed/
+    category: governance
+
+  # DAO tooling
   - name: Tally Blog
     type: rss
     url: https://blog.tally.xyz/rss/
@@ -47,11 +64,27 @@ sources:
     url: https://tallyho.substack.com/feed
     category: tooling
 
+  - name: Snapshot Blog
+    type: rss
+    url: https://blog.snapshot.org/feed.xml
+    category: tooling
+
+  - name: Aragon Blog
+    type: rss
+    url: https://blog.aragon.org/rss/
+    category: tooling
+
+  - name: Safe (Gnosis Safe) Blog
+    type: rss
+    url: https://safe.global/blog/rss.xml
+    category: tooling
+
   - name: DAO tooling (Mirror)
     type: rss
     url: https://mirror.xyz/feed
     category: tooling
 
+  # Ecosystem / news
   - name: The Block - Governance
     type: rss
     url: https://www.theblock.co/rss?category=governance
@@ -71,6 +104,37 @@ sources:
     type: rss
     url: https://www.bankless.com/feed
     category: ecosystem
+
+  - name: Messari Blog
+    type: rss
+    url: https://messari.io/rss
+    category: ecosystem
+
+  - name: Paradigm Blog
+    type: rss
+    url: https://paradigm.xyz/feed.xml
+    category: ecosystem
+
+  - name: a16z Crypto Blog
+    type: rss
+    url: https://a16zcrypto.com/feed/
+    category: ecosystem
+
+  - name: The Defiant
+    type: rss
+    url: https://thedefiant.io/feed
+    category: ecosystem
+
+  # Security
+  - name: Rekt News
+    type: rss
+    url: https://rekt.news/rss/
+    category: security
+
+  - name: Immunefi Blog
+    type: rss
+    url: https://immunefi.com/blog/feed/
+    category: security
 
 keywords:
   governance: [proposal, vote, snapshot, forum, arfc, aip, temp check, quorum]
