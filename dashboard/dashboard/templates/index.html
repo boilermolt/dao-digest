@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Core Brief - Story Dashboard</title>
+    <title>DAO Digest - Story Dashboard</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -128,7 +128,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🔳 The Core Brief</h1>
+            <h1>🔳 DAO Digest</h1>
             <div class="meta">
                 Story Dashboard · Last updated: {{ fetched_at }} · {{ item_count }} items
             </div>
@@ -136,10 +136,12 @@
 
         <div class="filters">
             <button class="filter-btn active" data-category="all">All Stories</button>
-            <button class="filter-btn" data-category="regulatory">Regulatory</button>
-            <button class="filter-btn" data-category="industry_news">Industry News</button>
-            <button class="filter-btn" data-category="research">Research</button>
-            <button class="filter-btn" data-category="community">Community</button>
+            <button class="filter-btn" data-category="governance">Governance</button>
+            <button class="filter-btn" data-category="tooling">Tooling</button>
+            <button class="filter-btn" data-category="funding">Funding</button>
+            <button class="filter-btn" data-category="regulation">Regulation</button>
+            <button class="filter-btn" data-category="security">Security</button>
+            <button class="filter-btn" data-category="ecosystem">Ecosystem</button>
         </div>
 
         <div id="stories">

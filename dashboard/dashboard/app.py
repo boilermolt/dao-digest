@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Core Brief - Story Review Dashboard
+DAO Digest - Story Review Dashboard
 Simple Flask app to review, filter, and rank aggregated stories.
 """
 
